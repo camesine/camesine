@@ -6,9 +6,9 @@ var OPTS = {
         key: "{{key}} ",
     },
 };
-function schemaValidator(schema) {
+function validator(schema) {
     return function (req, res, next) {
-        var params = req.method === "POST" ? req.body : req.params;
+        var params = req.method === "GET" ? req.params : req.body;
         var error = schema.validate(params, OPTS).error;
         if (error) {
             var message = error.message;
@@ -19,4 +19,4 @@ function schemaValidator(schema) {
         }
     };
 }
-exports.schemaValidator = schemaValidator;
+exports.validator = validator;

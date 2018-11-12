@@ -8,9 +8,9 @@ const OPTS: ValidationOptions = {
     },
 };
 
-export function schemaValidator(schema: ObjectSchema) {
+export function validator(schema: ObjectSchema) {
     return (req: express.Request, res: express.Response, next: express.NextFunction) => {
-        const params = req.method === "POST" ? req.body : req.params;
+        const params = req.method === "GET" ? req.params : req.body;
         const { error } = schema.validate(params, OPTS);
         if (error) {
             const { message } = error;

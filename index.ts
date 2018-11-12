@@ -1,9 +1,9 @@
 import { Controller } from "./Controller";
 import { Router } from "./Router";
-import { schemaValidator } from "./Schema-validator";
+import { validator } from "./Schema-validator";
 
 export {
     Controller,
     Router,
-    schemaValidator,
+    validator,
 };
